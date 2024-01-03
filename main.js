@@ -376,6 +376,8 @@ class Game {
       this.mainContainer.classList.remove(state);
     });
 
+    console.log(this.mainContainer.classList);
+
     this.mainContainer.classList.add(newState);
     this.state = newState;
   };

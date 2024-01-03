@@ -22,125 +22,113 @@ html, body {
 #container {
   width: 100%;
   height: 100%;
+}
 
-  #score {
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 10vh;
-    transition: transform 0.5s ease;
-    color: var(--text-color);
-    transform: translateY(-200px) scale(1);
-  }
+#score {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 10vh;
+  transition: transform 0.5s ease;
+  color: var(--text-color);
+  transform: translateY(-200px) scale(1);
+}
 
-  #game {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+#game {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
-  .game-over {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    * {
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      opacity: 0;
-      transform: translateY(-50px);
-      color: var(--text-color);
-    }
+.game-over > * {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(-50px);
+  color: var(--text-color);
+}
 
-    h2 {
-      margin: 0;
-      padding: 0;
-      font-size: 40px;
-    }
-  }
+.game-over > h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
 
-  .game-ready {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.game-ready {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 
-    .start-button {
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      opacity: 0;
-      transform: translateY(-50px);
+.game-ready > .start-button {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(-50px);
 
-      border: 3px solid var(--text-color);
-      padding: 10px 20px;
-      background-color: transparent;
-      color: var(--text-color);
-      font-size: 30px;
-    }
-  }
+  border: 3px solid var(--text-color);
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 30px;
+}
 
-  #instructions {
-    position: absolute;
-    width: 100%;
-    top: 16vh;
-    left: 0;
-    text-align: center;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+#instructions {
+  position: absolute;
+  width: 100%;
+  top: 16vh;
+  left: 0;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
 
-    opacity: 0;
+#instructions.hide {
+  opacity: 0 !important;
+}
 
-    &.hide {
-      opacity: 0 !important;
-    }
-  }
+.ready > .game-ready > .start-button {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  &.playing, &.resetting {
-    #score {
-      transform: translateY(0px) scale(1);
-    }
-  }
+.playing > #instructions {
+  opacity: 1;
+}
 
-  &.playing {
-    #instructions {
-      opacity: 1;
-    }
-  }
+.playing > #score,
+.resetting > #score {
+  transform: translateY(0px) scale(1);
+}
 
-  &.ready {
-    .game-ready {
-      .start-button {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
+.ended > #score {
+  transform: translateY(6vh) scale(1.5);
+}
 
-  &.ended {
-    #score {
-      transform: translateY(6vh) scale(1.5);
-    }
+.ended > .game-over > * {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .game-over {
-      * {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      p {
-        transition-delay: 0.3s;
-      }
-    }
-  }
+.ended > .game-over > p {
+  transition-delay: 0.3s;
 }
