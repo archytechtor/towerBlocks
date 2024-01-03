@@ -370,6 +370,8 @@ class Game {
 
     document.addEventListener('touchstart', (e) => {
       e.preventDefault();
+
+      this.onAction();
     });
   }
 
