@@ -364,10 +364,12 @@ class Game {
       }
     });
 
+    document.addEventListener('click', (e) => {
+      this.onAction();
+    });
+
     document.addEventListener('touchstart', (e) => {
       e.preventDefault();
-
-      this.onAction();
     });
   }
 
@@ -375,8 +377,6 @@ class Game {
     Object.values(this.STATES).forEach((state) => {
       this.mainContainer.classList.remove(state);
     });
-
-    console.log(this.mainContainer.classList);
 
     this.mainContainer.classList.add(newState);
     this.state = newState;
