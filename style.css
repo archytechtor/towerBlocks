@@ -4,6 +4,10 @@
   --text-color: #ccc;
 }
 
+* {
+  user-select: none;
+}
+
 html, body {
   margin: 0;
   overflow: hidden;

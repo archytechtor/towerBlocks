@@ -364,10 +364,6 @@ class Game {
       }
     });
 
-    document.addEventListener('click', (e) => {
-      this.onAction();
-    });
-
     document.addEventListener('touchstart', (e) => {
       e.preventDefault();
 
